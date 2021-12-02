@@ -2,8 +2,7 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-
-fn main(){
+fn main() {
     part1();
     part2();
 }
@@ -12,7 +11,7 @@ fn part2() {
     let mut a: Option<i32> = None;
     let mut b: Option<i32> = None;
     let mut c: Option<i32> = None;
-    let mut prev:i32;
+    let mut prev: i32;
     let mut count: i32 = 0;
     if let Ok(lines) = read_lines("./input") {
         // Consumes the iterator, returns an (Optional) String
