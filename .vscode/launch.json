@@ -7,6 +7,14 @@
     {
       "type": "lldb",
       "request": "launch",
+      "name": "Day04",
+      "program": "${workspaceFolder}/day04/target/debug/day04",
+      "args": [],
+      "cwd": "${workspaceFolder}/day04"
+    },  
+    {
+      "type": "lldb",
+      "request": "launch",
       "name": "Day03",
       "program": "${workspaceFolder}/day03/target/debug/day03.exe",
       "args": [],
