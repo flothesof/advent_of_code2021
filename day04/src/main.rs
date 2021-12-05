@@ -94,7 +94,7 @@ fn part1() {
         }
     }
 }
-fn main() {
+fn part2() {
     let lines = read_lines("input".to_string());
     let mut iter_lines = lines.iter();
     let random_numbers: Vec<i32> = iter_lines
@@ -145,6 +145,11 @@ fn main() {
     }
     println!("part 1 {}", scores[0]);
     println!("part 2 {}", scores[scores.len() - 1]);
+}
+
+fn main() {
+    part1();
+    part2();
 }
 
 // failed attempts below
