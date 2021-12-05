@@ -14,7 +14,7 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-fn read_lines(fname: String) -> std::vec::Vec<String> {
+fn read_lines(fname: &String) -> std::vec::Vec<String> {
     let f = File::open(fname).expect("Unable to open file");
     let f = BufReader::new(f);
     let mut lines = Vec::new();
@@ -28,7 +28,7 @@ fn read_lines(fname: String) -> std::vec::Vec<String> {
 fn make_counts(lines: &std::vec::Vec<String>) -> [std::vec::Vec<i32>; 2] {
     let mut counts_zero = Vec::new();
     let mut counts_one = Vec::new();
-    for _i in 0..lines.len() {
+    for _i in 0..lines[0].len() {
         counts_zero.push(0);
         counts_one.push(0);
     }
@@ -45,26 +45,8 @@ fn make_counts(lines: &std::vec::Vec<String>) -> [std::vec::Vec<i32>; 2] {
     return [counts_zero, counts_one];
 }
 
-fn main() {
-    let mut lines = read_lines("./input".to_string());
-    let line_len = lines[0].len();
-    for bit in 0..line_len {
-        let [counts_zero, counts_one] = make_counts(&lines);
-        // oxygen: keep most common
-        let mut keep;
-        if counts_one[bit] > counts_zero[bit] {
-            keep = "1";
-        }
-        else if counts_one[bit] < counts_zero[bit] {
-            keep = "0";
-        }
-        lines = lines.iter().filter(p).collect();
-        // let y: Vec<_> = x.iter().filter(p).collect();
-    }
-}
-
 fn part1() {
-    let lines = read_lines("./input".to_string());
+    let lines = read_lines(&"./input".to_string());
     // println!("{}, {}", lines.len(), lines[0].len());
     let [counts_zero, counts_one] = make_counts(&lines);
     let mut gamma = "".to_string();
@@ -78,9 +60,73 @@ fn part1() {
             epsilon += "0";
         }
     }
-    // println!("{} {}", gamma, epsilon);
     let int_gamma = isize::from_str_radix(&gamma, 2).unwrap();
     let int_epsilon = isize::from_str_radix(&epsilon, 2).unwrap();
 
-    println!("part 1 {}", int_gamma * int_epsilon);
+    println!("part 1: {}", int_gamma * int_epsilon);
+}
+
+fn part2() {
+    let fname = "./input".to_string();
+    let mut lines = read_lines(&fname);
+    let line_len = lines[0].len();
+    for bit in 0..line_len {
+        //println!("{}", lines.len());
+        let [counts_zero, counts_one] = make_counts(&lines);
+        // oxygen: keep most common
+        let keep;
+        if counts_one[bit] > counts_zero[bit] {
+            keep = "1";
+        } else if counts_one[bit] < counts_zero[bit] {
+            keep = "0";
+        } else {
+            keep = "1";
+        }
+        //println!("keep is {}", keep);
+        let mut new_lines = Vec::new();
+        for line in &lines {
+            if line.as_bytes()[bit] == keep.as_bytes()[0] {
+                new_lines.push(line.clone());
+            }
+        }
+        lines = new_lines;
+        //println!("numbers left {:?}", lines);
+        if lines.len() == 1 {
+            break;
+        }
+    }
+    let oxygen = isize::from_str_radix(&lines[0], 2).unwrap();
+    //println!("oxygen {:?}", oxygen);
+
+    let mut lines = read_lines(&fname);
+    let line_len = lines[0].len();
+    for bit in 0..line_len {
+        let [counts_zero, counts_one] = make_counts(&lines);
+        let keep;
+        if counts_one[bit] < counts_zero[bit] {
+            keep = "1";
+        } else if counts_one[bit] > counts_zero[bit] {
+            keep = "0";
+        } else {
+            keep = "0";
+        }
+        let mut new_lines = Vec::new();
+        for line in &lines {
+            if line.as_bytes()[bit] == keep.as_bytes()[0] {
+                new_lines.push(line.clone());
+            }
+        }
+        lines = new_lines;
+        if lines.len() == 1 {
+            break;
+        }
+    }
+    let co2 = isize::from_str_radix(&lines[0], 2).unwrap();
+    //println!("oxygen {:?}", co2);
+    println!("part 2: {:?}", oxygen * co2);
+}
+
+fn main() {
+    part1();
+    part2();
 }
