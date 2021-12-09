@@ -11,3 +11,4 @@ Cargo.lock
 
 # Mac stuff
 **/.DS_Store
+day07/main.hpp
