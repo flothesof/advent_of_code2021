@@ -4,13 +4,14 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Day08",
-      "program": "${workspaceFolder}/day08/target/debug/day08",
+      "name": "Day12",
+      "program": "${workspaceFolder}/day12/target/debug/day12",
       "args": [],
-      "cwd": "${workspaceFolder}/day08"
+      "cwd": "${workspaceFolder}/day12"
     },  
     {
       "type": "lldb",

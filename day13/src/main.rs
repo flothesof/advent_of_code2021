@@ -1,7 +1,7 @@
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-
+#[allow(while_true)]
 fn main() {
     let f = File::open("input").expect("Unable to open file");
     let f = BufReader::new(f);
