@@ -5,13 +5,14 @@
   "version": "0.2.0",
   "configurations": [
 
+
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Day12",
-      "program": "${workspaceFolder}/day12/target/debug/day12",
+      "name": "Day15",
+      "program": "${workspaceFolder}/day15/target/debug/day15",
       "args": [],
-      "cwd": "${workspaceFolder}/day12"
+      "cwd": "${workspaceFolder}/day15"
     },  
     {
       "type": "lldb",
