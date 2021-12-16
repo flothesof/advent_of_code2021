@@ -110,7 +110,7 @@ fn step2(
 fn increase(val: &i32, i: i32) -> i32 {
     let mut out = val.clone();
     for _k in 0..i + 1 {
-        if out == 9 {
+        if out >= 9 {
             out = 1;
         } else {
             out = out + 1;
@@ -153,10 +153,11 @@ fn main() {
         grid.push(row);
     }
     println!("{:?}, {}", grid.len(), grid[0].len());
-    //println!("{:?}", grid[9]);
+    for row in grid.clone() {
+        println!("{:?}", row);
+    }
     let pos = (0, 0);
     let mut memory: HashMap<(i32, i32), i32> = HashMap::new();
-    memory.insert((grid[0].len() as i32 - 1, grid.len() as i32 - 1), 0);
     let (risk, memory) = step2(pos, &grid, memory);
     println!("part 2: {:?}", risk);
 }
