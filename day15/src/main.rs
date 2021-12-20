@@ -157,7 +157,7 @@ fn main() {
         println!("{:?}", row);
     }
     let pos = (0, 0);
-    let mut memory: HashMap<(i32, i32), i32> = HashMap::new();
+    let memory: HashMap<(i32, i32), i32> = HashMap::new();
     let (risk, memory) = step2(pos, &grid, memory);
-    println!("part 2: {:?}", risk);
+    println!("part 2: {:?}, {:?}", risk, memory.len());
 }

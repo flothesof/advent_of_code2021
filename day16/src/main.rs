@@ -31,7 +31,7 @@ fn to_binary(c: char) -> String {
 fn read(n: i32, bin: &mut String) -> String {
     let mut out = "".to_string();
     let mut char_vec: VecDeque<char> = bin.chars().collect();
-    for i in 0..n {
+    for _i in 0..n {
         out += &char_vec.pop_front().unwrap().to_string();
     }
     *bin = char_vec.into_iter().collect();
