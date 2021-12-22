@@ -1,13 +1,13 @@
-Advent of code 2021 using Rust
-==============================
+# Advent of code 2021 using Rust
 
-See for inspiration: 
+See for inspiration:
+
 - [Tim Visée AOC2020 in Rust](https://github.com/timvisee/advent-of-code-2020).
 - [Cazayus (Rust)](https://github.com/Cazayus/aoc2021)
 - [forthib (Rust)](https://github.com/forthib/aoc2021)
 
 | Day | Rust | Python |
-|-----|------|--------|
+| --- | ---- | ------ |
 | 1   | x    |        |
 | 2   | x    |        |
 | 3   | x    |        |
@@ -29,12 +29,22 @@ See for inspiration:
 | 19  |      | x      |
 | 20  |      | x      |
 | 21  |      | x      |
+| 22  | x    |        |
 
-Notes 
------
+## Notes
 
-Day 11 
-~~~~~~
+Day 11
 
-I reused my Vec[x][y] Option-padded grid logic from day 9. It would have been a good occasion to rewrite the grid logic as a HashMap. 
-Recursion FTW. 
+```
+
+I reused my Vec[x][y] Option-padded grid logic from day 9. It would have been a good occasion to rewrite the grid logic as a HashMap.
+Recursion FTW.
+
+Day 22
+```
+
+I got inspired by this Python solution
+https://paste.ofcode.org/rLgHVR3Ux6pJntZUzX3MNp
+Quite happy with the use of Option pattern.
+Wrote my first custom struct with its own method.
+Really not happy about working with strings in Rust.

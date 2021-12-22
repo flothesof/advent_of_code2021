@@ -37,7 +37,7 @@ fn read(n: i32, bin: &mut String) -> String {
     *bin = char_vec.into_iter().collect();
     out
 }
-
+#[allow(while_true)]
 fn main() {
     let hex = "8A004A801A8002F478".to_string();
     //let hex = "D2FE28".to_string();

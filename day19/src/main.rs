@@ -1,11 +1,13 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
+#[allow(while_true)]
 fn main() {
     let f = File::open("input_test").expect("Unable to open file");
     let f = BufReader::new(f);
     let mut line_iter = f.lines();
     let mut scanner_points = Vec::new();
+    //
     while true {
         let mut next_line = line_iter.next();
         if next_line.is_none() {
